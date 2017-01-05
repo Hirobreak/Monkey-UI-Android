@@ -77,4 +77,23 @@ open class MonkeyToolbar(activity: AppCompatActivity) {
         customToolbar.subtitle.visibility = View.VISIBLE
         customToolbar.subtitle.text = EmojiHandler.decodeJava(EmojiHandler.decodeJava(subtitle))
     }
+
+    fun setToolbar(title : String, subtitle : String?, backable : Boolean, avatarURL : String?){
+        customToolbar.title.text = EmojiHandler.decodeJava(EmojiHandler.decodeJava(title))
+        customToolbar.subtitle.visibility = View.GONE
+        customToolbar.imageView.visibility = View.GONE
+        if (avatarURL != null) {
+            customToolbar.imageView.visibility = View.VISIBLE
+            Utils.setAvatarAsync(toolbar.context, customToolbar.imageView, avatarURL,
+                    false, null)
+        }
+
+        if (subtitle != null) {
+            customToolbar.subtitle.visibility = View.VISIBLE
+            customToolbar.subtitle.text = EmojiHandler.decodeJava(EmojiHandler.decodeJava(subtitle))
+        }
+
+
+        actionBar.setDisplayHomeAsUpEnabled(backable)
+    }
 }

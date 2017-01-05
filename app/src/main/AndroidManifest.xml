@@ -14,7 +14,9 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        tools:replace="android:theme"
+        android:theme="@style/UITheme">
+
         <activity android:name=".MainFragmentActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
